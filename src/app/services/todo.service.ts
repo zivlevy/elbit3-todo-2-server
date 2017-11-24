@@ -1,21 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Todo} from "../model/todo";
-import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Todo} from '../model/todo';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class TodoService {
     todos: Array<Todo> = [];
     todos$: BehaviorSubject<Todo[]> = new BehaviorSubject([]);
-    url: string = 'http://130.211.153.28:9000/todos'
+    url = 'http://130.211.153.28:9000/todos';
 
     constructor(private http: HttpClient) {
-        this.getTodos$().subscribe(res=>this.todos=res)
+        this.getTodos$().subscribe(res => this.todos = res);
         this.todosFromServer();
     }
 
     completed(): number {
-        let compleated = this.todos.filter(todo => todo.completed === true);
+        const compleated = this.todos.filter(todo => todo.completed === true);
         return compleated.length;
     }
 
@@ -26,20 +26,20 @@ export class TodoService {
     private todosFromServer() {
         this.http.get<Todo[]>(this.url).subscribe(res => {
             this.todos$.next(<Array<Todo>>res) ;
-        })
+        });
     }
 
-    getTodos$(){
+    getTodos$() {
         return this.todos$.asObservable();
     }
 
     addTodo(title: string, completed: boolean = false) {
-        let todo: Todo = {title, completed};
-        this.http.post(this.url, todo).subscribe(res => this.todosFromServer())
+        const todo: Todo = {title, completed};
+        this.http.post(this.url, todo).subscribe(res => this.todosFromServer());
     }
 
     removeTodo(e: Todo) {
-        this.http.delete(this.url + '/' + e._id).subscribe(res => this.todosFromServer())
+        this.http.delete(this.url + '/' + e._id).subscribe(res => this.todosFromServer());
 
     }
 
@@ -47,7 +47,7 @@ export class TodoService {
 
         e.completed = e.completed ? false : true;
         this.http.put(this.url + '/' + e._id, e).subscribe(res => {
-            this.todosFromServer()
+            this.todosFromServer();
         });
     }
 }
