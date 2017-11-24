@@ -1,0 +1,4 @@
+<form id="wrapper" >
+    <input #title  type="text" placeholder="Enter action item">
+    <input id="submit-button" type="submit" value="Add Action Item"   (click)="add($event,title.value) ; title.value=''">
+</form>

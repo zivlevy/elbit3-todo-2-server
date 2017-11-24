@@ -1,0 +1,16 @@
+#wrapper {
+    margin-bottom:25px;
+}
+input{
+    width: 280px;
+    font-size: 22px;
+}
+#submit-button {
+    display: inline-block;
+    height: 32px;
+    width: 200px;
+    font-size: 22px;
+    padding: 0 10px;
+    background-color: steelblue;
+    color:white;
+}

@@ -1,0 +1,4 @@
+<action-item  *ngFor="let todo of todos" [todo]="todo"
+             (delete)="removeTodo(todo)"
+             (toggle)="toggelTodo(todo)"
+></action-item>

@@ -1,0 +1,21 @@
+#container {
+    display: flex;
+    margin: 0 10px;
+}
+
+#title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+
+}
+#count {
+    width:30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    color:wheat;
+    margin-left: 10px;
+}

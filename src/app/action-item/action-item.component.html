@@ -1,0 +1,6 @@
+<div class="">
+  <button (click)="removeMe()">X</button>
+  <input #checked type="checkbox" [checked]="todo.completed" (click)="toggleCheck()">
+  <span [ngClass]="{complete:todo.completed}">{{todo.title}}</span>
+
+</div>

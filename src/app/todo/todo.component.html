@@ -1,0 +1,10 @@
+
+<div id="wrapper">
+  <total-list [total]="todos.length" [compleated]="completed()" [open]="open()"></total-list>
+  <action-input (todoAdded)="addTodo($event,false)"></action-input>
+  <action-list [todos]="todos"
+               (remove)="removeTodo($event)"
+               (toggle)="toggleTodo($event)"
+  ></action-list>
+</div>
+

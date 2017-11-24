@@ -1,0 +1,17 @@
+button {
+    margin-right: 10px;
+    font-size: 12px;
+    background-color: darkred;
+    color:white;
+
+}
+button:focus {outline:0;}
+
+span {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.complete{
+    text-decoration: line-through;
+}
